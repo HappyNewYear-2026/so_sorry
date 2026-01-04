@@ -131,7 +131,7 @@ export default function LetterPage({ setCurrentPage }) {
             className="text-xl text-purple-200 leading-relaxed"
           >
             Tum bahoot acchi ho, Mujhe proud hai<br />
-            meri Madam ji pe, Mujhe maaf krdena...💔
+            meri Madam ji pe, Mujhe maaf krdena 💔
           </motion.p>
 
           <motion.p
@@ -140,12 +140,15 @@ export default function LetterPage({ setCurrentPage }) {
             transition={{ duration: 0.8, delay: 1.8 }}
             className="text-lg text-pink-200 leading-relaxed max-w-lg mx-auto"
           >
-            Kismat ne mujhse meri hrr pyari chiz cheni hai,<br />
-            Abb tubhi na mille to sikayat kaisi...❤️‍🩹<br />
-            Galti to sbse hoti h na, Tumhare iss 🙉 se bhi hogyi ritu...!<br />
+            Kismat ne mujhse meri hrr pyari chiz cheni hai, Abb tubhi na mille to sikayat kaisi...❤️‍🩹<br />
+            Galti to sbse hoti h na, Tumhare iss 🙉 se bhi hogyi Ritu...!<br />
+            Tumhare Dil me jo acchai maine bnai usme, ek galti ki wajha se dag lgg gya.<br />
+            Plz tm uss dag ko mitana,<br />
+            Mujhe ya meri acchai ko nhi.<br />
             Agar uparwale ne hmme phir milaya to i promise to do better, to be better for U..✨!<br />
             Apni beti ki trha rkhunga tujhe...®️<br />
-            You are my everything..!🌍
+            Remember............!<br />
+            You are my Everything..!🌍
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
