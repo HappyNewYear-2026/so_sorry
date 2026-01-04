@@ -145,7 +145,7 @@ export default function LetterPage({ setCurrentPage }) {
             Galti to sbse hoti h na, Tumhare iss 🙉 se bhi hogyi ritu...!<br />
             Agar uparwale ne hmme phir milaya to i promise to do better, to be better for U..✨!<br />
             Apni beti ki trha rkhunga tujhe...®️<br />
-            You are my everything...🌍
+            You are my everything..!🌍
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -153,7 +153,7 @@ export default function LetterPage({ setCurrentPage }) {
             transition={{ delay: 3, duration: 0.8 }}
             className="text-pink-300 text-xl mt-6"
           >
-            Can you please forgive me…?💔
+            Meri kismat ko jitne mtt dena Ritu...💔
           </motion.p>
 
         </motion.div>
