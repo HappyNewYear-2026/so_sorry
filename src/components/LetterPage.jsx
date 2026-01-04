@@ -131,7 +131,7 @@ export default function LetterPage({ setCurrentPage }) {
             className="text-xl text-purple-200 leading-relaxed"
           >
             Tum bahoot acchi ho, Mujhe proud hai<br />
-            meri Madam ji pe, Maaf krdena mujhe...💔
+            meri Madam ji pe, Mujhe maaf krdena...💔
           </motion.p>
 
           <motion.p
