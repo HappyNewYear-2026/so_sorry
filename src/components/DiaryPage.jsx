@@ -32,7 +32,7 @@ export default function DiaryPage({ setCurrentPage }) {
           transition={{ duration: 1, delay: 0.5 }}
           className="text-center"
         >
-          <h1 className="text-3xl text-pink-300 mb-8 leading-relaxed">I'm so sorry Ritu…😞</h1>
+          <h1 className="text-3xl text-pink-300 mb-8 leading-relaxed">I'm sorry Ritu....🥺</h1>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
