@@ -84,8 +84,8 @@ export default function OpeningPage({ setCurrentPage, setMusicPlaying, setShowMu
           transition={{ duration: 0.8, delay: 1.3 }}
           className="text-pink-200 text-xl leading-relaxed"
         >
-          Ritu........!<br />
-          Mujhe meri glti ka ehassas hai...😿
+          Ritu..........! 😿<br />
+          Mujhe meri glti ka ehassas hai..!
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
