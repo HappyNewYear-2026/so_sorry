@@ -143,7 +143,7 @@ export default function LetterPage({ setCurrentPage }) {
             Kismat ne mujhse meri hrr pyari chiz cheni hai, Abb tubhi na mille to sikayat kaisi...❤️‍🩹<br />
             Galti to sbse hoti h na, Tumhare iss 🙉 se bhi hogyi Ritu...!<br />
             Tumhare Dil me jo acchai maine bnai usme, ek galti ki wajha se dag lgg gya.<br />
-            Plz tm uss dag ko mitana,<br />
+            Plz tum uss dag ko mitana,<br />
             Mujhe ya meri acchai ko nhi.<br />
             Agar uparwale ne hmme phir milaya to i promise to do better, to be better for U..✨!<br />
             Apni beti ki trha rkhunga tujhe...®️<br />
