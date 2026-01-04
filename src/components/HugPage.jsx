@@ -136,7 +136,7 @@ export default function HugPage({ setCurrentPage }) {
           }}
         />
         <Heart size={24} className="text-pink-200 relative z-10" />
-        <span className="relative z-10"></span>
+        <span className="relative z-10">✨>®spanp
       </motion.button>
 
       <AnimatePresence>
