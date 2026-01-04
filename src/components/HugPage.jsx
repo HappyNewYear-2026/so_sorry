@@ -96,7 +96,7 @@ export default function HugPage({ setCurrentPage }) {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-2xl text-pink-200 leading-relaxed"
         >
-          I don’t need anything fancy right now…
+          ___Mujhe or kuch nhi chahey___
         </motion.p>
         <motion.p
           initial={{ opacity: 0, y: 15 }}
@@ -104,7 +104,8 @@ export default function HugPage({ setCurrentPage }) {
           transition={{ duration: 0.8, delay: 1.1 }}
           className="text-xl text-purple-200 leading-relaxed"
         >
-          Just your arms around me, that’s all I want.💕
+          Bss tum or tumhara sath...💕<br />
+          Forever & ever & ever...💞
         </motion.p>
       </motion.div>
 
@@ -135,7 +136,7 @@ export default function HugPage({ setCurrentPage }) {
           }}
         />
         <Heart size={24} className="text-pink-200 relative z-10" />
-        <span className="relative z-10">Send a hug</span>
+        <span className="relative z-10"></span>
       </motion.button>
 
       <AnimatePresence>
