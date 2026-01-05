@@ -21,8 +21,8 @@ export default function LetterPage({ setCurrentPage }) {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-2xl text-pink-300 mb-8 mt-10 md:mt-0"
         >
-          Yaad rakhna mai hmesha tumhare sath hu.…🌙<br />
-          Or sirf Tumhara hu....🫵🏻
+          Main sarminda hu...🙉<br />
+          Ek glti meri acchai mitta to nhi skti na...🌙
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -130,8 +130,7 @@ export default function LetterPage({ setCurrentPage }) {
             transition={{ duration: 0.8, delay: 1.5 }}
             className="text-xl text-purple-200 leading-relaxed"
           >
-            Tum bahoot acchi ho, Mujhe proud hai<br />
-            meri Madam ji pe, Mujhe maaf krdena 💔
+            Tum bahoot acchi ho, Mujhe proud hai apni Madam ji pr, Tu sahi, mai glt. 💔
           </motion.p>
 
           <motion.p
