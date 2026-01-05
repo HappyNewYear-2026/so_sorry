@@ -142,11 +142,11 @@ export default function LetterPage({ setCurrentPage }) {
           >
             Kismat ne mujhse meri hrr pyari chiz cheni hai, Abb tubhi na mille to sikayat kaisi...❤️‍🩹<br />
             Galti to sbse hoti h na, Tumhare iss 🙉 se bhi hogyi Ritu...!<br />
-            Tumhare Dil me jo acchai maine bnai usme, ek galti ki wajha se dag lgg gya.<br />
-            Plz tum uss dag ko mitana,<br />
+            Tumhare Dil me jo acchai maine bnai hai usme, ek galti ki wajha se dag lgg gya..!<br />
+            Plzzz ritu,<br />
+            uss dag ko mitana,<br />
             Mujhe ya meri acchai ko nhi.<br />
-            Agar uparwale ne hmme phir milaya to i promise to do better, to be better for U..✨!<br />
-            Apni beti ki trha rkhunga tujhe...®️<br />
+            <br />
             Remember............!<br />
             You are my Everything..!🌍
           </motion.p>
@@ -156,7 +156,7 @@ export default function LetterPage({ setCurrentPage }) {
             transition={{ delay: 3, duration: 0.8 }}
             className="text-pink-300 text-xl mt-6"
           >
-            Meri kismat ko jitne mtt dena Ritu...💔
+            Dil ke bure nhi h yrr...💔
           </motion.p>
 
         </motion.div>
