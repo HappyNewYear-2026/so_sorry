@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
-const WHATSAPP_NUMBER = "91XXXXXXXXXX" // 🔁 Replace with your WhatsApp number (with country code)
+const WHATSAPP_NUMBER = "919155150110" // 🔁 Replace with your WhatsApp number (with country code)
 
 export default function GiftPage() {
   const [giftOpened, setGiftOpened] = useState(false)
