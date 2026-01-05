@@ -12,16 +12,20 @@ export default function GiftPage() {
     setGiftOpened(true)
 
     // show message
-    setTimeout(() => setShowSurprise(true), 1200)
+    setTimeout(() => {
+      setShowSurprise(true)
+    }, 1200)
 
-    // show 💌 right after message
-    setTimeout(() => setShowReplyBtn(true), 2500)
+    // show 💌 shortly after message
+    setTimeout(() => {
+      setShowReplyBtn(true)
+    }, 2500)
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center relative overflow-hidden">
 
-      {/* Title */}
+      {/* Heading */}
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -31,6 +35,7 @@ export default function GiftPage() {
         Ye khash tumhare ley... 💝
       </motion.h2>
 
+      {/* Gift / Content */}
       <AnimatePresence mode="wait">
         {!giftOpened ? (
           <motion.div
@@ -74,6 +79,7 @@ export default function GiftPage() {
               />
             </div>
 
+            {/* Message */}
             <AnimatePresence>
               {showSurprise && (
                 <motion.div
@@ -116,18 +122,18 @@ export default function GiftPage() {
             href="https://wa.me/919155150110"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center px-3 py-2 rounded-full"
             style={{
               boxShadow:
                 "0 0 8px rgba(255,255,255,0.6), 0 0 15px rgba(158,159,158,0.7)",
             }}
-            className="inline-flex items-center px-3 py-2 rounded-full"
           >
             <span className="twinkle-emoji text-2xl">💌</span>
           </a>
         </div>
       )}
 
-      {/* Global animations */}
+      {/* Animations (GLOBAL, SAFE) */}
       <style jsx global>{`
         @keyframes shootIn {
           30% {
