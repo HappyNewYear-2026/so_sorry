@@ -204,7 +204,7 @@ export default function GiftPage() {
                       className="text-lg text-purple-200 leading-relaxed"
                     >
                       thik wyse hi jysa mera tumhare ley pyar hai. I promise ki tumhara khubsurat Dii phir kabhi nhi dukhaunga...💖<br />
-                      janta hu 'sorry' sb thik nhi kr skta,<br />
+                      janta hu 'sorry' sb thik nhi kr skta,
                       But mujhe khushi h ki maine atleast kosis to ki.<br />
                       <br />
                       Kudko kabhi akela mtt samjhna<br />
