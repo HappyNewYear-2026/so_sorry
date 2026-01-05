@@ -218,8 +218,8 @@ export default function GiftPage() {
                       transition={{ duration: 0.8, delay: 0.9 }}
                       className="text-xl text-pink-200"
                     >
-                      
-                      Abb intezar k 💕👶🏻
+                      Ritu...!<br />
+                      Plz tm aana jrur...💕
                     </motion.p>
                   </motion.div>
                 )}
