@@ -81,7 +81,7 @@ export default function GiftPage() {
                     <motion.button
                       onClick={() =>
                         window.open(
-                          `https://wa.me/${WHATSAPP_NUMBER}?text=💖%20I%20saw%20your%20gift...`,
+                          `https://wa.me/${WHATSAPP_NUMBER}?text=💖%20I%20saw%20this%20...Ashish 🥹`,
                           "_blank"
                         )
                       }
