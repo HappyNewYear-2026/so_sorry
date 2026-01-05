@@ -1,271 +1,169 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function GiftPage() {
   const [giftOpened, setGiftOpened] = useState(false)
   const [showSurprise, setShowSurprise] = useState(false)
+  const [showReplyBtn, setShowReplyBtn] = useState(false)
 
   const openGift = () => {
     setGiftOpened(true)
+
+    // Show message
     setTimeout(() => {
       setShowSurprise(true)
     }, 1200)
+
+    // Show 💌 shortly AFTER message reveal
+    setTimeout(() => {
+      setShowReplyBtn(true)
+    }, 2500)
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center relative overflow-hidden">
-      {/* Floating cute elements */}
-      <motion.div
-        className="absolute top-40 md:top-20 left-8 text-2xl"
-        animate={{
-          y: [0, -10, 0],
-          rotate: [0, 20, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Number.POSITIVE_INFINITY,
-        }}
-      >
-        🎁
-      </motion.div>
 
-      <motion.div
-        className="absolute md:top-32 right-10 text-xl"
-        animate={{
-          y: [0, -5, 0],
-        }}
-        transition={{
-          duration: 2.5,
-          repeat: Number.POSITIVE_INFINITY,
-          delay: 1,
-        }}
-      >
-        ✨
-      </motion.div>
-
+      {/* Title */}
       <motion.h2
-        layout
-        initial={{ opacity: 0, }}
-        animate={{ opacity: 1, }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="text-3xl text-pink-300 mb-16"
       >
         Ye khash tumhare ley... 💝
       </motion.h2>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="relative"
-      >
-        <AnimatePresence mode="wait">
-          {!giftOpened ? (
-            <motion.div
-              key="gift-box"
-              exit={{
-                scale: 0,
-                opacity: 0,
-                y: -50,
-              }}
-              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="cursor-pointer group relative"
-              onClick={openGift}
-            >
-              {/* Cute glow around gift */}
-              <div className="absolute inset-0 w-56 h-56 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-xl scale-110 group-hover:scale-120 transition-transform duration-300"></div>
+      {/* Gift Section */}
+      <AnimatePresence mode="wait">
+        {!giftOpened ? (
+          <motion.div
+            key="gift"
+            onClick={openGift}
+            className="cursor-pointer relative"
+            initial={{ scale: 0.6, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="absolute inset-0 w-56 h-56 bg-pink-400/30 rounded-full blur-2xl"></div>
 
-              <motion.img
-                src="/gifs/gift.gif"
-                alt="Gift box"
-                className="w-56 h-56 mx-auto relative z-10 drop-shadow-2xl"
-                animate={{
-                  rotate: [0, 2, -2, 0],
-                  scale: [1, 1.05, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+            <motion.img
+              src="/gifs/gift.gif"
+              alt="Gift"
+              className="w-56 h-56 relative z-10"
+              animate={{ rotate: [0, 2, -2, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+
+            <p className="text-pink-200 mt-6 text-xl">
+              Click to open..! 🎁✨
+            </p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="opened"
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="space-y-10"
+          >
+            {/* Teddy */}
+            <div className="relative">
+              <div className="absolute inset-0 w-64 h-64 bg-pink-400/30 rounded-full blur-2xl"></div>
+              <img
+                src="/gifs/teddy-giving-flower.gif"
+                alt="Teddy"
+                className="w-52 mx-auto relative z-10"
               />
+            </div>
 
-              <motion.p
-                animate={{
-                  y: [0, -3, 0],
-                  textShadow: [
-                    "0 0 10px rgba(236, 72, 153, 0.5)",
-                    "0 0 20px rgba(236, 72, 153, 0.8)",
-                    "0 0 10px rgba(236, 72, 153, 0.5)",
-                  ],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "easeInOut",
-                  delay: 2
-                }}
-                className="text-pink-200 mt-6 text-xl relative z-10"
-              >
-                Click to open..!🎁✨
-              </motion.p>
-
-              {/* Floating sparkles around gift */}
-              <motion.div
-                className="absolute -top-2 -right-2 text-lg"
-                animate={{
-                  scale: [1, 1.3, 1],
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Number.POSITIVE_INFINITY,
-                }}
-              >
-                ⭐
-              </motion.div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="opened-gift"
-              initial={{ scale: 0, opacity: 0, y: 50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="space-y-12"
-            >
-              <motion.div
-                initial={{ y: 50, opacity: 0, scale: 0.8 }}
-                animate={{ y: 0, opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="relative w-full h-full"
-              >
-                {/* Beautiful aura around flower teddy */}
-                <div className="absolute w-64 h-64 mx-auto inset-0 bg-gradient-to-r from-pink-400/30 to-purple-400/30 rounded-full blur-2xl scale-110"></div>
-
-                <img
-                  src="/gifs/teddy-giving-flower.gif"
-                  alt="Teddy giving flower"
-                  className="w-52 mx-auto relative z-10 drop-shadow-2xl"
-                />
-
-                {/* Floating elements around teddy */}
+            {/* Message */}
+            <AnimatePresence>
+              {showSurprise && (
                 <motion.div
-                  className="absolute -top-3 -right-3 text-xl"
-                  animate={{
-                    y: [0, -8, 0],
-                    rotate: [0, 15, 0],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
+                  className="space-y-6 max-w-lg"
                 >
-                  🌸
+                  <p className="text-2xl text-pink-300">
+                    Ye Rose kabhi nhi murjhayega... 🌹
+                  </p>
+
+                  <p className="text-lg text-purple-200 leading-relaxed">
+                    thik wyse hi jysa mera tumhare ley pyar hai.  
+                    I promise ki tumhara khubsurat Dil phir kabhi nhi dukhaunga... 💖  
+                    <br /><br />
+                    Kudko kabhi akela mtt samjhna  
+                    Ek bandar hai tumhare pass hmesha...  
+                    <br />
+                    (shiddat se 💫)
+                  </p>
+
+                  <p className="text-xl text-pink-200">
+                    Ritu...! 💕
+                  </p>
                 </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-                <motion.div
-                  className="absolute -bottom-2 -left-2 text-lg"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    delay: 1,
-                  }}
-                >
-                  💕
-                </motion.div>
-              </motion.div>
-
-              <AnimatePresence>
-                {showSurprise && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="space-y-8 max-w-lg"
-                  >
-                    <motion.p
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.3 }}
-                      className="text-2xl text-pink-300 leading-relaxed"
-                    >
-                      Ye Rose kabhi nhi murjhayega...🌹
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                      className="text-lg text-purple-200 leading-relaxed"
-                    >
-                      thik wyse hi jysa mera tumhare ley pyar hai. I promise ki tumhara khubsurat Dil phir kabhi nhi dukhaunga...💖<br />
-                      janta hu 'sorry' sb thik nhi kr skta,
-                      But mujhe khushi h ki maine atleast kosis to ki.<br />
-                      <br />
-                      Kudko kabhi akela mtt samjhna<br />
-                      Ek bandar hai tumhare pass hmesha...<br />
-                      Hmari duriyan jbtk khtm nhi hojati tbtk tm plz apna khayal rkhna.<br />
-                      Efforts krley, abb intezar krunga...<br />
-                      (shiddat se 💫)
-                    </motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.9 }}
-                      className="text-xl text-pink-200"
-                    >
-                      Ritu...!<br />
-                      Plz tm aana jrur...💕
-                    </motion.p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
-
-      {/* Enhanced floating animation with more variety */}
-      {giftOpened && (
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{
-                x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 800),
-                y: (typeof window !== "undefined" ? window.innerHeight : 600) + 50,
-                opacity: 0,
-                scale: 0,
-              }}
-              animate={{
-                y: -150,
-                opacity: [0, 0.8, 0.8, 0],
-                scale: [0, 1.5, 1, 0.5],
-                rotate: 360,
-                x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 800),
-              }}
-              transition={{
-                duration: 5,
-                delay: Math.random() * 3,
-                repeat: Number.POSITIVE_INFINITY,
-                repeatDelay: Math.random() * 6,
-                ease: [0.25, 0.46, 0.45, 0.94],
-              }}
-              className="absolute text-2xl z-40"
-              style={{
-                filter: "drop-shadow(0 0 10px rgba(236, 72, 153, 0.6))",
-              }}
-            >
-              {["💖", "🌸", "💕", "🌺", "💝", "🌹", "✨"][Math.floor(Math.random() * 7)]}
-            </motion.div>
-          ))}
+      {/* 💌 Reply Button */}
+      {showReplyBtn && (
+        <div
+          className="fixed top-[73px] left-1/2 -translate-x-1/2 z-[999]"
+          style={{
+            animation: "shootIn 2s ease forwards",
+          }}
+        >
+          <a
+            href="https://wa.me/919155150110"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-3 py-2 rounded-full
+                       shadow-[0_0_8px_rgba(255,255,255,0.6),0_0_15px_rgba(158,159,158,0.7)]"
+          >
+            <span className="twinkle-emoji text-2xl">💌</span>
+          </a>
         </div>
       )}
+
+      {/* CSS Animations */}
+      <style jsx global>{`
+        @keyframes shootIn {
+          30% {
+            transform: translate(-300%, 100%) scale(1.1) rotate(180deg);
+            opacity: 0;
+          }
+          60% {
+            transform: translate(-50%, -30%) scale(1.1);
+            opacity: 1;
+          }
+          100% {
+            transform: translateX(-50%) scale(3);
+            opacity: 1;
+          }
+        }
+
+        .twinkle-emoji {
+          animation: twinkleEmoji 1.2s infinite alternate ease-in-out;
+        }
+
+        @keyframes twinkleEmoji {
+          50% {
+            transform: scale(1);
+            filter: drop-shadow(0 0 2px #ec0606);
+          }
+          100% {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px #e8ea40);
+          }
+        }
+      `}</style>
     </div>
   )
 }
