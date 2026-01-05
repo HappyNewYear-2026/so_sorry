@@ -5,7 +5,34 @@ import { useEffect, useState } from "react"
 
 export default function StarryBackground() {
   const [stars, setStars] = useState([])
-
+  resize();
+  addEventListener("resize", resize);
+  const shootingStars = [];
+  class ShootingStar {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height * 0.4;
+    this.length = Math.random() * 120 + 50;
+    this.speed = Math.random() * 15 + 10;
+    this.opacity = 1;
+  }
+  update() {
+    this.x += this.speed;
+    this.y += this.speed;
+    this.opacity -= 0.02;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.moveTo(this.x, this.y);
+    ctx.lineTo(this.x - this.length, this.y - this.length);
+    ctx.strokeStyle = `rgba(255,255,255,${this.opacity})`;
+    ctx.lineWidth = 2;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "white";
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+}
   useEffect(() => {
     const generateStars = () => {
       const newStars = []
@@ -44,6 +71,8 @@ export default function StarryBackground() {
             repeat: Number.POSITIVE_INFINITY,
             delay: star.delay,
           }}
+          
+          
         />
       ))}
     </div>
