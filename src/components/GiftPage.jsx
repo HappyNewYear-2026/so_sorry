@@ -3,29 +3,38 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
+const WHATSAPP_NUMBER = "91XXXXXXXXXX" // 🔁 Replace with your WhatsApp number (with country code)
+
 export default function GiftPage() {
   const [giftOpened, setGiftOpened] = useState(false)
   const [showSurprise, setShowSurprise] = useState(false)
-  const [showReplyBtn, setShowReplyBtn] = useState(false)
 
   const openGift = () => {
     setGiftOpened(true)
-
-    // show message
     setTimeout(() => {
       setShowSurprise(true)
     }, 1200)
-
-    // show 💌 shortly after message
-    setTimeout(() => {
-      setShowReplyBtn(true)
-    }, 2500)
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 text-center relative overflow-hidden">
+      {/* Floating elements */}
+      <motion.div
+        className="absolute top-40 md:top-20 left-8 text-2xl"
+        animate={{ y: [0, -10, 0], rotate: [0, 20, 0] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      >
+        🎁
+      </motion.div>
 
-      {/* Heading */}
+      <motion.div
+        className="absolute md:top-32 right-10 text-xl"
+        animate={{ y: [0, -5, 0] }}
+        transition={{ duration: 2.5, repeat: Infinity, delay: 1 }}
+      >
+        ✨
+      </motion.div>
+
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -35,130 +44,122 @@ export default function GiftPage() {
         Ye khash tumhare ley... 💝
       </motion.h2>
 
-      {/* Gift / Content */}
-      <AnimatePresence mode="wait">
-        {!giftOpened ? (
-          <motion.div
-            key="gift"
-            onClick={openGift}
-            className="cursor-pointer relative"
-            initial={{ scale: 0.6, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="absolute inset-0 w-56 h-56 bg-pink-400/30 rounded-full blur-2xl" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="relative"
+      >
+        <AnimatePresence mode="wait">
+          {!giftOpened ? (
+            <motion.div
+              key="gift-box"
+              exit={{ scale: 0, opacity: 0, y: -50 }}
+              transition={{ duration: 1 }}
+              className="cursor-pointer group relative"
+              onClick={openGift}
+            >
+              <div className="absolute inset-0 w-56 h-56 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-xl scale-110"></div>
 
-            <motion.img
-              src="/gifs/gift.gif"
-              alt="Gift"
-              className="w-56 h-56 relative z-10"
-              animate={{ rotate: [0, 2, -2, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-
-            <p className="text-pink-200 mt-6 text-xl">
-              Click to open..! 🎁✨
-            </p>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="opened"
-            initial={{ scale: 0.7, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="space-y-10"
-          >
-            {/* Teddy */}
-            <div className="relative">
-              <div className="absolute inset-0 w-64 h-64 bg-pink-400/30 rounded-full blur-2xl" />
-              <img
-                src="/gifs/teddy-giving-flower.gif"
-                alt="Teddy"
-                className="w-52 mx-auto relative z-10"
+              <motion.img
+                src="/gifs/gift.gif"
+                alt="Gift"
+                className="w-56 h-56 mx-auto relative z-10"
+                animate={{ rotate: [0, 2, -2, 0], scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
               />
-            </div>
 
-            {/* Message */}
-            <AnimatePresence>
-              {showSurprise && (
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1 }}
-                  className="space-y-6 max-w-lg"
-                >
-                  <p className="text-2xl text-pink-300">
-                    Ye Rose kabhi nhi murjhayega... 🌹
-                  </p>
+              <motion.p
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="text-pink-200 mt-6 text-xl"
+              >
+                Click to open..! 🎁✨
+              </motion.p>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="opened-gift"
+              initial={{ scale: 0, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              transition={{ duration: 1.2 }}
+              className="space-y-12"
+            >
+              {/* Teddy GIF */}
+              <div className="relative">
+                <div className="absolute inset-0 w-64 h-64 mx-auto bg-gradient-to-r from-pink-400/30 to-purple-400/30 rounded-full blur-2xl"></div>
+                <img
+                  src="/gifs/teddy-giving-flower.gif"
+                  alt="Teddy"
+                  className="w-52 mx-auto relative z-10"
+                />
+              </div>
 
-                  <p className="text-lg text-purple-200 leading-relaxed">
-                    thik wyse hi jysa mera tumhare ley pyar hai.  
-                    I promise ki tumhara khubsurat Dil phir kabhi nhi dukhaunga... 💖  
-                    <br /><br />
-                    Kudko kabhi akela mtt samjhna  
-                    Ek bandar hai tumhare pass hmesha...  
-                    <br />
-                    (shiddat se 💫)
-                  </p>
+              <AnimatePresence>
+                {showSurprise && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="space-y-8 max-w-lg mx-auto"
+                  >
+                    {/* 💌 WhatsApp Button */}
+                    <motion.button
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.6 }}
+                      onClick={() =>
+                        window.open(
+                          `https://wa.me/${WHATSAPP_NUMBER}?text=💖%20I%20saw%20your%20gift...`,
+                          "_blank"
+                        )
+                      }
+                      className="text-4xl mx-auto hover:scale-125 transition-transform duration-300"
+                    >
+                      💌
+                    </motion.button>
 
-                  <p className="text-xl text-pink-200">
-                    Ritu...! 💕
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                    {/* Message */}
+                    <motion.p
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                      className="text-2xl text-pink-300"
+                    >
+                      Ye Rose kabhi nhi murjhayega... 🌹
+                    </motion.p>
 
-      {/* 💌 Reply Button (NO shadow, NO circle) */}
-      {showReplyBtn && (
-        <div
-          className="fixed top-[73px] left-1/2 -translate-x-1/2 z-[999]"
-          style={{ animation: "shootIn 2s ease forwards" }}
-        >
-          <a
-            href="https://wa.me/919155150110"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-2xl"
-          >
-            <span className="twinkle-emoji">💌</span>
-          </a>
-        </div>
-      )}
+                    <motion.p
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                      className="text-lg text-purple-200"
+                    >
+                      thik wyse hi jysa mera tumhare ley pyar hai.  
+                      I promise ki tumhara khubsurat Dil phir kabhi nhi dukhaunga... 💖  
+                      <br /><br />
+                      Kudko kabhi akela mtt samjhna  
+                      Ek bandar hai tumhare pass hmesha...  
+                      <br />
+                      Efforts krley, abb intezar krunga... (shiddat se 💫)
+                    </motion.p>
 
-      {/* Animations (GLOBAL, SAFE) */}
-      <style jsx global>{`
-        @keyframes shootIn {
-          30% {
-            transform: translate(-300%, 100%) scale(1.1) rotate(180deg);
-            opacity: 0;
-          }
-          60% {
-            transform: translate(-50%, -30%) scale(1.1);
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(-50%) scale(3);
-            opacity: 1;
-          }
-        }
-
-        .twinkle-emoji {
-          animation: twinkleEmoji 1.2s infinite alternate ease-in-out;
-        }
-
-        @keyframes twinkleEmoji {
-          from {
-            transform: scale(1);
-          }
-          to {
-            transform: scale(1.15);
-          }
-        }
-      `}</style>
+                    <motion.p
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                      className="text-xl text-pink-200"
+                    >
+                      Ritu...! 💕<br />
+                      Plz tm aana jrur...
+                    </motion.p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   )
 }
