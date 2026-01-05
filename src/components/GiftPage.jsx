@@ -210,7 +210,8 @@ export default function GiftPage() {
                       Kudko kabhi akela mtt samjhna<br />
                       Ek bandar hai tumhare pass hmesha...<br />
                       Hmari duriyan jbtk khtm nhi hojati tbtk tm plz apna khayal rkhna.<br />
-                      Efforts krley, abb intezar krunga...(shiddat se 💫)
+                      Efforts krley, abb intezar krunga...<br />
+                      (shiddat se 💫)
                     </motion.p>
                     <motion.p
                       initial={{ opacity: 0, y: 15 }}
