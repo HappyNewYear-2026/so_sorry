@@ -12,14 +12,10 @@ export default function GiftPage() {
     setGiftOpened(true)
 
     // show message
-    setTimeout(() => {
-      setShowSurprise(true)
-    }, 1200)
+    setTimeout(() => setShowSurprise(true), 1200)
 
     // show 💌 shortly after message
-    setTimeout(() => {
-      setShowReplyBtn(true)
-    }, 2500)
+    setTimeout(() => setShowReplyBtn(true), 2500)
   }
 
   return (
@@ -35,24 +31,21 @@ export default function GiftPage() {
         Ye khash tumhare ley... 💝
       </motion.h2>
 
-      {/* Gift / Content */}
       <AnimatePresence mode="wait">
         {!giftOpened ? (
           <motion.div
             key="gift"
             onClick={openGift}
-            className="cursor-pointer relative"
+            className="cursor-pointer"
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className="absolute inset-0 w-56 h-56 bg-pink-400/30 rounded-full blur-2xl" />
-
             <motion.img
               src="/gifs/gift.gif"
               alt="Gift"
-              className="w-56 h-56 relative z-10"
+              className="w-56 h-56 mx-auto"
               animate={{ rotate: [0, 2, -2, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -70,16 +63,12 @@ export default function GiftPage() {
             className="space-y-10"
           >
             {/* Teddy */}
-            <div className="relative">
-              <div className="absolute inset-0 w-64 h-64 bg-pink-400/30 rounded-full blur-2xl" />
-              <img
-                src="/gifs/teddy-giving-flower.gif"
-                alt="Teddy"
-                className="w-52 mx-auto relative z-10"
-              />
-            </div>
+            <img
+              src="/gifs/teddy-giving-flower.gif"
+              alt="Teddy"
+              className="w-52 mx-auto"
+            />
 
-            {/* Message */}
             <AnimatePresence>
               {showSurprise && (
                 <motion.div
@@ -112,7 +101,7 @@ export default function GiftPage() {
         )}
       </AnimatePresence>
 
-      {/* 💌 Reply Button */}
+      {/* 💌 Reply Button (NO SHADOW, NO CIRCLE) */}
       {showReplyBtn && (
         <div
           className="fixed top-[73px] left-1/2 -translate-x-1/2 z-[999]"
@@ -122,18 +111,14 @@ export default function GiftPage() {
             href="https://wa.me/919155150110"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-3 py-2 rounded-full"
-            style={{
-              boxShadow:
-                "0 0 8px rgba(255,255,255,0.6), 0 0 15px rgba(158,159,158,0.7)",
-            }}
+            className="text-2xl"
           >
-            <span className="twinkle-emoji text-2xl">💌</span>
+            <span className="twinkle-emoji">💌</span>
           </a>
         </div>
       )}
 
-      {/* Animations (GLOBAL, SAFE) */}
+      {/* SAFE GLOBAL CSS (NO SHADOWS ANYWHERE) */}
       <style jsx global>{`
         @keyframes shootIn {
           30% {
@@ -155,13 +140,11 @@ export default function GiftPage() {
         }
 
         @keyframes twinkleEmoji {
-          50% {
+          from {
             transform: scale(1);
-            filter: drop-shadow(0 0 2px #ec0606);
           }
-          100% {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 8px #e8ea40);
+          to {
+            transform: scale(1.15);
           }
         }
       `}</style>
