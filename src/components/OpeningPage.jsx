@@ -95,7 +95,7 @@ export default function OpeningPage({ setCurrentPage, setMusicPlaying, setShowMu
         >
           Maine bahoot bhaar utha rkha h,
           <br />
-          Hatho mai nhi, Apne Dil mai..!❤️‍🩹
+          Kandho se jyada, Apne Dil mai..!❤️‍🩹
         </motion.p>
       </motion.div>
 
