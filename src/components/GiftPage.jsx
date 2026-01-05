@@ -113,7 +113,7 @@ export default function GiftPage() {
                       transition={{ duration: 0.8, delay: 0.2 }}
                       className="text-2xl text-pink-300"
                     >
-                      Ye Rose kabhi nhi murjhayega... 🌹
+                      Ye Rose kabhi nhi murjhayega.🌹
                     </motion.p>
 
                     <motion.p
@@ -123,12 +123,13 @@ export default function GiftPage() {
                       className="text-lg text-purple-200"
                     >
                       thik wyse hi jysa mera tumhare ley pyar hai.  
-                      I promise ki tumhara khubsurat Dil phir kabhi nhi dukhaunga... 💖  
+                      I promise ki tumhara Dil phir kabhi nhi dukhaunga... 💖  
                       <br /><br />
                       Kudko kabhi akela mtt samjhna  
                       Ek bandar hai tumhare pass hmesha...  
                       <br />
-                      Efforts krley, abb intezar krunga... (shiddat se 💫)
+                      Efforts krley, abb intezar krunga...<br />
+                      (shiddat se 💫)
                     </motion.p>
 
                     <motion.p
