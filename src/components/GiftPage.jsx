@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function GiftPage() {
   const [giftOpened, setGiftOpened] = useState(false)
@@ -11,15 +11,11 @@ export default function GiftPage() {
   const openGift = () => {
     setGiftOpened(true)
 
-    // Show message
-    setTimeout(() => {
-      setShowSurprise(true)
-    }, 1200)
+    // show message
+    setTimeout(() => setShowSurprise(true), 1200)
 
-    // Show 💌 shortly AFTER message reveal
-    setTimeout(() => {
-      setShowReplyBtn(true)
-    }, 2500)
+    // show 💌 right after message
+    setTimeout(() => setShowReplyBtn(true), 2500)
   }
 
   return (
@@ -35,7 +31,6 @@ export default function GiftPage() {
         Ye khash tumhare ley... 💝
       </motion.h2>
 
-      {/* Gift Section */}
       <AnimatePresence mode="wait">
         {!giftOpened ? (
           <motion.div
@@ -47,7 +42,7 @@ export default function GiftPage() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className="absolute inset-0 w-56 h-56 bg-pink-400/30 rounded-full blur-2xl"></div>
+            <div className="absolute inset-0 w-56 h-56 bg-pink-400/30 rounded-full blur-2xl" />
 
             <motion.img
               src="/gifs/gift.gif"
@@ -71,7 +66,7 @@ export default function GiftPage() {
           >
             {/* Teddy */}
             <div className="relative">
-              <div className="absolute inset-0 w-64 h-64 bg-pink-400/30 rounded-full blur-2xl"></div>
+              <div className="absolute inset-0 w-64 h-64 bg-pink-400/30 rounded-full blur-2xl" />
               <img
                 src="/gifs/teddy-giving-flower.gif"
                 alt="Teddy"
@@ -79,7 +74,6 @@ export default function GiftPage() {
               />
             </div>
 
-            {/* Message */}
             <AnimatePresence>
               {showSurprise && (
                 <motion.div
@@ -116,23 +110,24 @@ export default function GiftPage() {
       {showReplyBtn && (
         <div
           className="fixed top-[73px] left-1/2 -translate-x-1/2 z-[999]"
-          style={{
-            animation: "shootIn 2s ease forwards",
-          }}
+          style={{ animation: "shootIn 2s ease forwards" }}
         >
           <a
             href="https://wa.me/919155150110"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-3 py-2 rounded-full
-                       shadow-[0_0_8px_rgba(255,255,255,0.6),0_0_15px_rgba(158,159,158,0.7)]"
+            style={{
+              boxShadow:
+                "0 0 8px rgba(255,255,255,0.6), 0 0 15px rgba(158,159,158,0.7)",
+            }}
+            className="inline-flex items-center px-3 py-2 rounded-full"
           >
             <span className="twinkle-emoji text-2xl">💌</span>
           </a>
         </div>
       )}
 
-      {/* CSS Animations */}
+      {/* Global animations */}
       <style jsx global>{`
         @keyframes shootIn {
           30% {
