@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 export default function StarryBackground() {
   const [stars, setStars] = useState([])
-}
+
   useEffect(() => {
     const generateStars = () => {
       const newStars = []
@@ -44,8 +44,6 @@ export default function StarryBackground() {
             repeat: Number.POSITIVE_INFINITY,
             delay: star.delay,
           }}
-          
-          
         />
       ))}
     </div>
