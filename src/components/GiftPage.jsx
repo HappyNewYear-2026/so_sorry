@@ -203,7 +203,7 @@ export default function GiftPage() {
                       transition={{ duration: 0.8, delay: 0.6 }}
                       className="text-lg text-purple-200 leading-relaxed"
                     >
-                      thik wyse hi jysa mera tumhare ley pyar hai. I promise ki tumhara khubsurat Dii phir kabhi nhi dukhaunga...💖<br />
+                      thik wyse hi jysa mera tumhare ley pyar hai. I promise ki tumhara khubsurat Dil phir kabhi nhi dukhaunga...💖<br />
                       janta hu 'sorry' sb thik nhi kr skta,
                       But mujhe khushi h ki maine atleast kosis to ki.<br />
                       <br />
