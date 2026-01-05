@@ -147,7 +147,7 @@ export default function LetterPage({ setCurrentPage }) {
             Mujhe ya meri acchai ko nhi.<br />
             Agar uparwale ne hmme phir milaya to i promise to do better, to be better for U..✨!<br />
             Apni beti ki trha rkhunga tujhe...®️<br />
-            Remember............!<br />
+            Remember...........!<br />
             You are my Everything..!🌍
           </motion.p>
           <motion.p
