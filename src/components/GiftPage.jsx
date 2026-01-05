@@ -203,7 +203,14 @@ export default function GiftPage() {
                       transition={{ duration: 0.8, delay: 0.6 }}
                       className="text-lg text-purple-200 leading-relaxed"
                     >
-                      thik wyse hi jysa mera tumhare ley pyar hai. I promise ki tumhare khubsurat Dii phir kabhi nhi dukhaunga...💖
+                      thik wyse hi jysa mera tumhare ley pyar hai. I promise ki tumhara khubsurat Dii phir kabhi nhi dukhaunga...💖<br />
+                      janta hu 'sorry' sb thik nhi kr skta,<br />
+                      But mujhe khushi h ki maine atleast kosis to ki.<br />
+                      <br />
+                      Kudko kabhi akela mtt samjhna<br />
+                      Ek bandar hai tumhare pass hmesha...<br />
+                      Hmari duriyan jbtk khtm nhi hojati tbtk tm plz apna khayal rkhna.<br />
+                      Efforts krley, abb intezar krunga...(shiddat se 💫)
                     </motion.p>
                     <motion.p
                       initial={{ opacity: 0, y: 15 }}
@@ -211,7 +218,8 @@ export default function GiftPage() {
                       transition={{ duration: 0.8, delay: 0.9 }}
                       className="text-xl text-pink-200"
                     >
-                      Apni beti ki trha rakhunga hmesha 💕👶🏻
+                      
+                      Abb intezar k 💕👶🏻
                     </motion.p>
                   </motion.div>
                 )}
